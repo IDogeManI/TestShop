@@ -1,3 +1,4 @@
+import { CartService } from 'src/app/core/cart.service';
 import { Product } from '../../core/models/product.model';
 import { ActivatedRoute } from '@angular/router';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
@@ -19,5 +20,11 @@ export class ProductComponent {
     rating: { count: 0, rate: 0 },
     title: '',
   };
-  constructor(public activatedRoute: ActivatedRoute) {}
+  constructor(
+    public activatedRoute: ActivatedRoute,
+    private cartService: CartService
+  ) {}
+  public addToCart() {
+    this.cartService.addProductToCart(this.product);
+  }
 }

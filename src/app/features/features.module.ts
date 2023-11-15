@@ -5,10 +5,18 @@ import { ProductComponent } from './product/product.component';
 import { RouterModule } from '@angular/router';
 import { MainModule } from './main/main.module';
 import { ProductPageModule } from './product-page/product-page.module';
+import { CartModule } from './cart/cart.module';
+import { CartComponent } from './cart/cart/cart.component';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, RouterModule, MainModule, ProductPageModule],
-  exports: [MainComponent, ProductComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MainModule,
+    ProductPageModule,
+    CartModule,
+  ],
+  exports: [MainComponent, ProductComponent, CartComponent],
 })
 export class FeaturesModule {}

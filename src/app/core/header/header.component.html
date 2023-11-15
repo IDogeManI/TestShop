@@ -1,8 +1,7 @@
 <nav class="navbar">
-  <a href="#" class="main">Главная</a>
-
-  <a class="backet" href="#">
+  <a routerLink="/" class="main">Главная</a>
+  <a class="backet" routerLink="/cart">
     <img src="../../assets/backet.png" alt="backetImg" />
-    <p>В корзине: 0</p>
+    <p>В корзине: {{numOfProducts}}</p>
   </a>
 </nav>

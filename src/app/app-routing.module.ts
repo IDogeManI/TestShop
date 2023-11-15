@@ -15,6 +15,11 @@ const appRoute: Routes = [
         (m) => m.ProductPageModule
       ),
   },
+  {
+    path: 'cart',
+    loadChildren: () =>
+      import('./features/cart/cart.module').then((m) => m.CartModule),
+  },
 ];
 
 @NgModule({
