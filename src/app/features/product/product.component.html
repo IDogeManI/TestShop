@@ -1,7 +1,8 @@
 <div class="element">
   <h2>{{ product.category }}</h2>
   <img [src]="product.image" alt="image" />
-  <a [href]="'/product?productId='+product.id">{{ product.title }}</a>
+  <a [routerLink]="'/product'" [queryParams]="{productId:product.id}">{{
+    product.title }}</a>
   <p>{{ product.description }}</p>
   <h1>{{product.price}}$</h1>
   <div>

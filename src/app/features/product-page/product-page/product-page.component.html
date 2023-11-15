@@ -1,0 +1,18 @@
+<div class="element">
+  <h2>{{ product.category }}</h2>
+  <img [src]="product.image" alt="image" />
+  <a [routerLink]="'/product'" [queryParams]="{productId:product.id}">{{
+    product.title }}</a>
+  <p>{{ product.description }}</p>
+  <h1>{{product.price}}$</h1>
+  <div>
+    <img
+      src="../../assets/star.png"
+      alt="star" />
+    <p>{{product.rating.rate}}</p>
+  </div>
+  <p>{{product.rating.count}}</p>
+  <button class="addToCartBtn">
+    <h2>Добавить в корзину</h2>
+  </button>
+</div>

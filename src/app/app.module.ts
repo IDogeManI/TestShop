@@ -6,13 +6,9 @@ import { CoreModule } from './core/core.module';
 import { FeaturesModule } from './features/features.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './main/main.component';
-import { ProductComponent } from './product/product.component';
-
-const appRoute: Routes = [
-  { path: '', component: MainComponent },
-  { path: 'product', component: ProductComponent },
-];
+import { MainComponent } from './features/main/main/main.component';
+import { ProductComponent } from './features/product/product.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +17,7 @@ const appRoute: Routes = [
     CoreModule,
     FeaturesModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoute),
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
