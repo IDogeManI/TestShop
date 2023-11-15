@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public numOfProducts: number = 0;
   constructor(public cartService: CartService) {}
   private cartServiceSubscription: Subscription = new Subscription();
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.cartServiceSubscription = this.cartService.productsInCart.subscribe(
       (res) => (this.numOfProducts = res.length)
     );

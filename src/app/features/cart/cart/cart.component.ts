@@ -13,7 +13,7 @@ export class CartComponent implements OnInit, OnDestroy {
   public sumOfPrices: number = 0;
   constructor(private cartService: CartService) {}
   private cartServiceSubscription: Subscription = new Subscription();
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.cartServiceSubscription = this.cartService.productsInCart.subscribe(
       (res) => {
         this.productsInCart = res;
