@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Product } from 'src/app/core/models/product.model';
-import { ProductService } from 'src/app/core/product.service';
+import { ProductService } from 'src/app/core/services/product.service';
 
 @Component({
   selector: 'app-main',
@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/core/product.service';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit, OnDestroy {
-  private productSubscriprion: Subscription = new Subscription();
+  private productSubscriprion!: Subscription;
   public allProducts: Product[] = [];
   constructor(private readonly productService: ProductService) {}
   async ngOnInit(): Promise<void> {
@@ -20,6 +20,8 @@ export class MainComponent implements OnInit, OnDestroy {
       });
   }
   ngOnDestroy(): void {
-    this.productSubscriprion.unsubscribe();
+    if (this.productSubscriprion) {
+      this.productSubscriprion.unsubscribe();
+    }
   }
 }

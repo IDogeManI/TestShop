@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main/main/main.component';
-import { ProductComponent } from './product/product.component';
 import { RouterModule } from '@angular/router';
 import { MainModule } from './main/main.module';
-import { ProductPageModule } from './product-page/product-page.module';
 import { CartModule } from './cart/cart.module';
 import { CartComponent } from './cart/cart/cart.component';
+import { ProductPageComponent } from './product-page/product-page.component';
+import { FeaturesRoutingModule } from './features-routing.module';
 
 @NgModule({
-  declarations: [],
+  declarations: [ProductPageComponent],
   imports: [
     CommonModule,
     RouterModule,
     MainModule,
-    ProductPageModule,
     CartModule,
+    FeaturesRoutingModule,
   ],
-  exports: [MainComponent, ProductComponent, CartComponent],
+  exports: [MainComponent, CartComponent, ProductPageComponent],
 })
 export class FeaturesModule {}

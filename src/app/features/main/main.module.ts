@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main/main.component';
 import { MainRoutingModule } from './main-routing.module';
-import { ProductComponent } from '../product/product.component';
+import { ProductModule } from '../product/product.module';
 
 @NgModule({
-  declarations: [MainComponent, ProductComponent],
-  imports: [CommonModule, MainRoutingModule],
-  exports: [MainComponent, ProductComponent],
+  declarations: [MainComponent],
+  imports: [CommonModule, MainRoutingModule, ProductModule],
+  exports: [MainComponent],
 })
 export class MainModule {}

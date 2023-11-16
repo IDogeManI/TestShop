@@ -2,6 +2,8 @@
   <a routerLink="/" class="main">Главная</a>
   <a class="backet" routerLink="/cart">
     <img src="../../assets/backet.png" alt="backetImg" />
-    <p>В корзине: {{numOfProducts}}</p>
+    <ng-container *ngIf="quantity$ |async as quantity">
+      <p>В корзине: {{quantity.length}}</p>
+    </ng-container>
   </a>
 </nav>

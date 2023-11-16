@@ -1,9 +1,7 @@
-import { CartService } from 'src/app/core/cart.service';
-import { Product } from '../../core/models/product.model';
-import { ActivatedRoute } from '@angular/router';
+import { Product } from '../../../core/models/product.model';
+import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { ProductService } from '../../core/product.service';
-import { Subscription } from 'rxjs';
+import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -20,11 +18,18 @@ export class ProductComponent {
     rating: { count: 0, rate: 0 },
     title: '',
   };
+  public currentUrl: string = this.router.url;
   constructor(
+    private router: Router,
     public activatedRoute: ActivatedRoute,
     private cartService: CartService
   ) {}
   public addToCart() {
     this.cartService.addProductToCart(this.product);
+    let a = this.router.url;
+  }
+
+  public deleteFromCart() {
+    this.cartService.deleteProductFromCart(this.product);
   }
 }

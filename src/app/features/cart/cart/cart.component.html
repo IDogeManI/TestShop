@@ -1,21 +1,11 @@
 <ng-container
-  *ngFor="let product of productsInCart ; let i = index">
-  <div class="element">
-    <h2>{{ product.category }}</h2>
-    <img [src]="product.image" alt="image" />
-    <a [routerLink]="'/product'" [queryParams]="{productId:product.id}">{{
-      product.title }}</a>
-    <p>{{ product.description }}</p>
-    <h1>{{product.price}}$</h1>
-    <div>
-      <img
-        src="../../assets/star.png"
-        alt="star" />
-      <p>{{product.rating.rate}}</p>
-    </div>
-    <button class="addToCartBtn" (click)="deleteFromCart(product)">
-      <h2>Удалить из корзины</h2>
-    </button>
-  </div>
+  *ngIf="productsInCart$ | async as productsInCart">
+  <ng-container
+    *ngFor="let product of productsInCart ; let i = index">
+    <app-product [product]="product"></app-product>
+  </ng-container>
 </ng-container>
-<h1>Price: {{sumOfPrices}}$</h1>
+<ng-container
+  *ngIf="amount$ | async as amount">
+  <h1>Price: {{amount}}$</h1>
+</ng-container>

@@ -1,22 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CartService } from '../cart.service';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription, switchMap, BehaviorSubject } from 'rxjs';
+import { CartService } from '../services/cart.service';
+import { Product } from '../models/product.model';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit, OnDestroy {
-  public numOfProducts: number = 0;
-  constructor(public cartService: CartService) {}
-  private cartServiceSubscription: Subscription = new Subscription();
-  async ngOnInit(): Promise<void> {
-    this.cartServiceSubscription = this.cartService.productsInCart.subscribe(
-      (res) => (this.numOfProducts = res.length)
-    );
-  }
-  ngOnDestroy(): void {
-    this.cartServiceSubscription.unsubscribe();
-  }
+export class HeaderComponent {
+  public quantity$: Observable<Product[]> = this.cartService.productsInCart;
+  constructor(private readonly cartService: CartService) {}
 }
