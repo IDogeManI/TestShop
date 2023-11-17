@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductPageComponent } from './product-page/product-page.component';
+import { ProductPageComponent } from './main/components/product-page/product-page.component';
 
 const appRoute: Routes = [
   {
@@ -11,11 +11,7 @@ const appRoute: Routes = [
   {
     path: 'cart',
     loadChildren: () => import('./cart/cart.module').then((m) => m.CartModule),
-  },
-  {
-    path: 'product/:id',
-    component: ProductPageComponent,
-  },
+  }
 ];
 
 @NgModule({

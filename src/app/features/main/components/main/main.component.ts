@@ -6,15 +6,15 @@ import { ProductService } from 'src/app/core/services/product.service';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss'],
+  styleUrls: [],
 })
 export class MainComponent implements OnInit, OnDestroy {
   private productSubscriprion!: Subscription;
   public allProducts: Product[] = [];
   constructor(private readonly productService: ProductService) {}
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
     this.productSubscriprion = this.productService
-      .fetchAllProducts()
+      .fetchAllProducts$()
       .subscribe((res) => {
         this.allProducts = res;
       });

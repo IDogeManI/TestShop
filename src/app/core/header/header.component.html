@@ -3,7 +3,7 @@
   <a class="backet" routerLink="/cart">
     <img src="../../assets/backet.png" alt="backetImg" />
     <ng-container *ngIf="quantity$ |async as quantity">
-      <p>В корзине: {{quantity.length}}</p>
+      <p>В корзине: {{quantity}}</p>
     </ng-container>
   </a>
 </nav>

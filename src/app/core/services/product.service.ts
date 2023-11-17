@@ -10,10 +10,10 @@ const url: string = 'https://fakestoreapi.com/products';
 })
 export class ProductService {
   constructor(private httpClient: HttpClient) {}
-  fetchAllProducts(): Observable<Product[]> {
+  fetchAllProducts$(): Observable<Product[]> {
     return this.httpClient.get<Product[]>(url);
   }
-  getProductById(id: string): Observable<Product> {
+  getProductById$(id: string|null): Observable<Product> {
     return this.httpClient.get<Product>(url + '/' + id);
   }
 }

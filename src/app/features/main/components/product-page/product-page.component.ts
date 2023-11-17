@@ -13,10 +13,7 @@ export class ProductPageComponent {
   public product$: Observable<Product> = this.activatedRoute.paramMap.pipe(
     switchMap((params) => {
       const id = params.get('id');
-      if (id == null) {
-        return this.productService.getProductById('1');
-      }
-      return this.productService.getProductById(id);
+      return this.productService.getProductById$(id);
     })
   );
   constructor(

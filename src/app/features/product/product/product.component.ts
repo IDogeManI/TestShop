@@ -9,27 +9,18 @@ import { CartService } from 'src/app/core/services/cart.service';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent {
-  @Input() product: Product = {
-    id: '',
-    category: '',
-    description: '',
-    image: '',
-    price: 0,
-    rating: { count: 0, rate: 0 },
-    title: '',
-  };
+  @Input() product!: Product;
   public currentUrl: string = this.router.url;
   constructor(
     private router: Router,
     public activatedRoute: ActivatedRoute,
     private cartService: CartService
   ) {}
-  public addToCart() {
+  public addToCart(): void {
     this.cartService.addProductToCart(this.product);
-    let a = this.router.url;
   }
 
-  public deleteFromCart() {
+  public deleteFromCart(): void {
     this.cartService.deleteProductFromCart(this.product);
   }
 }

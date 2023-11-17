@@ -1,0 +1,8 @@
+<ng-container *ngIf="productsInCart$ | async as productsInCart">
+  <ng-container *ngFor="let product of productsInCart; let i = index">
+    <app-product [product]="product"></app-product>
+  </ng-container>
+</ng-container>
+<ng-container *ngIf="amount$ | async as amount">
+  <h1>Price: {{ amount | currency }}</h1>
+</ng-container>

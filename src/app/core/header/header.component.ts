@@ -9,6 +9,6 @@ import { Product } from '../models/product.model';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  public quantity$: Observable<Product[]> = this.cartService.productsInCart;
+  public quantity$: Observable<number> = this.cartService.getQuantity$();
   constructor(private readonly cartService: CartService) {}
 }
