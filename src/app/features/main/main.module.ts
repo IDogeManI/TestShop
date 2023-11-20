@@ -8,6 +8,6 @@ import { ProductComponent } from './components/product/product.component';
 @NgModule({
   declarations: [MainComponent,ProductPageComponent,ProductComponent],
   imports: [CommonModule, MainRoutingModule],
-  exports: [MainComponent,ProductPageComponent],
+  exports: [],
 })
 export class MainModule {}

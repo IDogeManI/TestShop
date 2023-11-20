@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, Subscription, switchMap } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { Product } from 'src/app/core/models/product.model';
 import { ProductService } from 'src/app/core/services/product.service';
 
