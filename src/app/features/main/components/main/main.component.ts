@@ -5,8 +5,7 @@ import { ProductService } from 'src/app/core/services/product.service';
 
 @Component({
   selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: [],
+  templateUrl: './main.component.html'
 })
 export class MainComponent implements OnInit, OnDestroy {
   private productSubscriprion!: Subscription;

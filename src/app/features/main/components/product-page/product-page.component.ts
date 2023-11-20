@@ -10,14 +10,15 @@ import { ProductService } from 'src/app/core/services/product.service';
   styleUrls: ['./product-page.component.scss'],
 })
 export class ProductPageComponent {
-  public product$: Observable<Product> = this.activatedRoute.paramMap.pipe(
-    switchMap((params) => {
-      const id = params.get('id');
-      return this.productService.getProductById$(id);
-    })
-  );
+  public readonly product$: Observable<Product> =
+    this.activatedRoute.paramMap.pipe(
+      switchMap((params) => {
+        const id = params.get('id');
+        return this.productService.getProductById$(id);
+      })
+    );
   constructor(
-    public activatedRoute: ActivatedRoute,
+    private readonly activatedRoute: ActivatedRoute,
     private readonly productService: ProductService
   ) {}
 }

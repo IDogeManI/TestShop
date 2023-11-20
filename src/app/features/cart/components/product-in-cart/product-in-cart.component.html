@@ -1,0 +1,15 @@
+<div class="element">
+  <h2>{{ product.category }}</h2>
+  <img [src]="product.image" alt="image" />
+  <a [routerLink]="['/product', product.id]">{{ product.title }}</a>
+  <p>{{ product.description }}</p>
+  <h1>{{ product.price }}$</h1>
+  <div>
+    <img src="../../assets/star.png" alt="star" />
+    <p>{{ product.rating.rate }}</p>
+  </div>
+  <p>{{ product.rating.count }}</p>
+  <button class="addToCartBtn" (click)="deleteFromCart()">
+    <h2>Удалить из корзины</h2>
+  </button>
+</div>

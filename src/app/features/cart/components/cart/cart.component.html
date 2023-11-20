@@ -1,6 +1,6 @@
 <ng-container *ngIf="productsInCart$ | async as productsInCart">
   <ng-container *ngFor="let product of productsInCart; let i = index">
-    <app-product [product]="product"></app-product>
+    <app-product-in-cart [product]="product"></app-product-in-cart>
   </ng-container>
 </ng-container>
 <ng-container *ngIf="amount$ | async as amount">
