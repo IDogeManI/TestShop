@@ -19,8 +19,4 @@ export class ProductComponent {
   public addToCart(): void {
     this.cartService.addProductToCart(this.product);
   }
-
-  public deleteFromCart(): void {
-    this.cartService.deleteProductFromCart(this.product);
-  }
 }

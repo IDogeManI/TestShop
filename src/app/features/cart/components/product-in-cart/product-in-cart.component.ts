@@ -10,16 +10,13 @@ import { CartService } from 'src/app/core/services/cart.service';
 })
 export class ProductInCartComponent {
   @Input() product!: Product;
+  @Input() count!: number;
   public currentUrl: string = this.router.url;
   constructor(
     private router: Router,
     public activatedRoute: ActivatedRoute,
     private cartService: CartService
   ) {}
-  public addToCart(): void {
-    this.cartService.addProductToCart(this.product);
-  }
-
   public deleteFromCart(): void {
     this.cartService.deleteProductFromCart(this.product);
   }

@@ -11,14 +11,14 @@ export class MainComponent implements OnInit, OnDestroy {
   private productSubscriprion!: Subscription;
   public allProducts: Product[] = [];
   constructor(private readonly productService: ProductService) {}
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.productSubscriprion = this.productService
       .fetchAllProducts$()
       .subscribe((res) => {
         this.allProducts = res;
       });
   }
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     if (this.productSubscriprion) {
       this.productSubscriprion.unsubscribe();
     }

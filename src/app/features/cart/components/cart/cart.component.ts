@@ -11,7 +11,8 @@ import { CartService } from 'src/app/core/services/cart.service';
 export class CartComponent {
   public productsInCart$: Observable<Product[]> =
     this.cartService.getCartProducts$();
-
+  public countOfProductsInCart$: Observable<number[]> =
+    this.cartService.getCountOfProductsInCart$();
   public amount$: Observable<number> = this.cartService.getAmount$();
   constructor(private cartService: CartService) {}
 }
