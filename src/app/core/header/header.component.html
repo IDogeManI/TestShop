@@ -1,0 +1,9 @@
+<nav class="navbar">
+  <a routerLink="/" class="main">Главная</a>
+  <a class="backet" routerLink="/cart">
+    <img src="../../assets/backet.png" alt="backetImg" />
+    <ng-container *ngIf="quantity$ |async as quantity">
+      <p>В корзине: {{quantity}}</p>
+    </ng-container>
+  </a>
+</nav>
